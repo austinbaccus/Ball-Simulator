@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ball_Simulator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Ball Drop" Height="500" Width="900"
+        Name="mainWindow" ResizeMode="NoResize">
+    <Grid Name="mainGrid">
         
+        <StackPanel Height="50" VerticalAlignment="Top" Orientation="Vertical">
+            <TextBlock Name="txt_x" Text="x" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+            <TextBlock Name="txt_y" Text="y" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+        </StackPanel>
+
+        <StackPanel Margin="5,50,0,50" HorizontalAlignment="Left">
+            
+            <TextBlock Text="coefficient of restitution"/>
+            <TextBox Margin="0,0,50,10" Text="0.85" Name="txt_restitution"/>
+            
+            <TextBlock Text="ball radius (m)"/>
+            <TextBox Margin="0,0,50,10" Text="10" Name="txt_radius"/>
+            
+            <TextBlock Text="gravity (m/s/s)"/>
+            <TextBox Margin="0,0,50,10" Text="-9.81" Name="txt_gravity"/>
+            
+            <TextBlock Text="velocity-x (m/s)"/>
+            <TextBox Margin="0,0,50,10" Text="10" Name="txt_vX"/>
+            
+            <TextBlock Text="velocity-y (m/s)"/>
+            <TextBox Margin="0,0,50,10" Text="0" Name="txt_vY"/>
+
+            <TextBlock Text="friction"/>
+            <TextBox Margin="0,0,50,10" Text="0.01" Name="txt_friction"/>
+
+        </StackPanel>
+        
+        <Canvas Name="mainCanvas" Margin="40" Width="700" Height="300">
+            <Rectangle Name="rect_boundaries" Stroke="DarkRed" StrokeThickness="2" Width="700" Height="300"/>
+        </Canvas>
+
+        <Button Name="btn_beginSimulation" Content="Begin" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,97,10" Width="75" Click="btn_beginSimulation_Click"/>
+        <Button Name="btn_restartSimulation" Content="Restart" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Width="75" Click="btn_restartSimulation_Click"/>
     </Grid>
 </Window>
